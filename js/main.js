@@ -50,31 +50,31 @@ let productos =[
     { id:"1234",
     name: "Caldo de Costilla",
     price:8000,
-    img:"../Imagenes/CaldodeCostilla.png",
+    img:"./Imagenes/CaldodeCostilla.png",
     description: "Caldo de costillar con Papa "
     },
     { id:"2345",
     name: "Tamal con Chocolate",
     price:9000,
-    img:"../Imagenes/Tamalconchocolate.jpg",
+    img:"./Imagenes/Tamalconchocolate.jpg",
     description: "Tamal con chocolate pan y queso"
     },
     { id:"3456",
     name: "Huevos con Arepa",
     price:7500,
-    img:"../Imagenes/huevosconarepa.jpg",
+    img:"./Imagenes/huevosconarepa.jpg",
     description: "Huevos con jamon y queso y arepa"
     },
     { id:"4567",
     name: "Changua",
     price:2700,
-    img:"../Imagenes/Changuaconhuevo.jpg",
+    img:"./Imagenes/Changuaconhuevo.jpg",
     description: "sopa con huevo leche papa y cilantro"
     },
     { id:"5678",
     name: "Calentado Paisa",
     price:2700,
-    img:"../Imagenes/Calentadopaisa.jpg",
+    img:"./Imagenes/Calentadopaisa.jpg",
     description: "Frijoles rebueltos con arroz, con huevos, carne y queson con arepa."
     }
 ]
@@ -83,31 +83,31 @@ let postres =[
     { id:"6789",
     name: "Merengon",
     price:8000,
-    img:"../Imagenes/Merengon.jpg",
+    img:"./Imagenes/Merengon.jpg",
     description: "Merengue con crema y fruta "
     },
     { id:"78910",
     name: "Manjar blanco",
     price:9000,
-    img:"../Imagenes/Manjarblanco.jpg",
+    img:"./Imagenes/Manjarblanco.jpg",
     description: "Arequipe de leche con uvas pasas"
     },
     { id:"891011",
     name: "Fresas con crema",
     price:7500,
-    img:"../Imagenes/Fresasconcrema.jpg",
+    img:"./Imagenes/Fresasconcrema.jpg",
     description: "Fresas con crema de leche y leche condensada"
     },
     { id:"9101112",
     name: "Brebas",
     price:2700,
-    img:"../Imagenes/Brebasconarequipe.jpg",
+    img:"./Imagenes/Brebasconarequipe.jpg",
     description: "Brebas con arequipe"
     },
     { id:"10111213",
     name: "Arroz de leche",
     price:2700,
-    img:"../Imagenes/ArrozdeLeche.jpg",
+    img:"./Imagenes/ArrozdeLeche.jpg",
     description: "Arroz con leche y leche condensada."
     }
 ]
