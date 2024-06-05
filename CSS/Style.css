@@ -1,0 +1,228 @@
+*{margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body{
+min-height:100vh ;
+max-height:100% ;
+
+    }
+
+/*estilos para la barra de navegacion*/  
+    .logo{
+        height: 80px;
+        width: 90px ;
+    }
+    .logo a{
+        padding-left: 20%;
+        
+    }
+    .logo p{
+        font-size: 13px;
+        padding: 5px;
+        
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(166, 163, 157);
+        
+
+    }
+    .opciones{
+        margin-top: 30px;
+    }
+
+    .opciones ul {
+        display: flex;
+        margin-bottom:5px;
+        padding-bottom: 5px;
+    }
+    .opciones ul li{
+        
+        list-style:none;
+        display: inline-block; 
+    
+            
+    }
+    .opciones a {
+        text-decoration: none;
+        color: black;
+        font-weight:bold;
+        font-size: 18px;
+        margin:15px 20px;  
+    }
+    .opciones a:hover{
+            text-shadow: 0 2px 5px rgb(69, 72, 77);
+            transition: 0.5s ;
+    }
+
+    #carrito a{
+        margin: 20px;
+        font-size: 50px;
+        color: rgb(8, 8, 8);
+        letter-spacing: 10 px;
+        margin-left:10px;
+            
+    }
+
+    
+    /*estilos para el main*/  
+.productos{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(50px,1fr));
+    gap: 5px;
+
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(224, 244, 244);
+}
+.card img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.desProducto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    color: black;
+    padding: 10px;
+}
+
+.desProducto button{
+    padding: 10px;
+    border: 1px solid black;
+    color: green;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+.desProducto button:hover{
+    background-color: black;
+    color: azure;
+    box-shadow: 1px 1px 1px black;
+
+
+}
+
+
+/* estilos carrito*/
+
+.contenedor-carrito {
+    display: flex;
+   
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .card-carrito {
+    
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    width: 150px;
+    height:100%;
+    border-bottom: 1px solid #eee;
+    border: solid black;
+  }
+  
+  .carrito-footer {
+    width: 100%;
+    background-color: #eee;
+    padding: 20px;
+    color: #191919;
+  }
+  
+  .eliminar-carrito{
+    padding: 10px;
+    background-color: rgb(184, 231, 149);
+    cursor: pointer;
+    margin: 15px;
+    
+  }
+  
+  #total {
+    font-size: 30px;
+    padding: 20px;
+    text-align: right;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*estilos para el FOOTER*/  
+    footer{
+        background-color: rgb(228, 204, 204);
+        color: rgb(8, 8, 8);
+        text-align: center;
+        padding: 1px;   
+        height: 60px;  
+        width: 100%;
+    }
+
+    .barraI ul{
+            margin-bottom:5px;
+            padding-bottom: 5px;
+        }
+    .barraI ul li{
+            list-style:none;
+            display: inline-block;        
+        }
+
+    .barraI a{
+        text-decoration: none;
+        color: black;
+        font-weight:bold;
+        font-size: 18px;
+        margin:15px 20px;  
+        
+    }
+
+    .barraI a:hover{
+        text-shadow: 0 2px 5px rgb(69, 72, 77);
+        transition: 0.5s;
+}
+
+    .inferior{
+        display:flex;
+        justify-content: space-between;
+    }
+    .inferior p{
+        margin-top: 12px;
+        margin-bottom: 0px;
+        font-size: 15px;
+    }
+
+    .redes a{
+    color: rgb(8, 8, 8);
+    text-decoration: none;
+    letter-spacing: 10 px;
+    font-size:20px;
+    margin-left:10px;
+    }
+    .redes a:hover{
+        
+        text-shadow: 0 2px 6cap rgb(40, 107, 214);
+        transition: 0.5s;
+}
+  
+
