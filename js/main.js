@@ -208,7 +208,7 @@ function mostrarProductos(){
         agregarAlCarrito(productoID);
         });
         });
-    }
+}
 
  //agregamos al carrito productos
 function agregarAlCarrito(productoID) {
@@ -234,7 +234,7 @@ function agregarAlCarrito(productoID) {
   }  
   // funcion para mostrar lo que se a agregado al carrito de productos
 
-  function mostrarCarrito() {
+function mostrarCarrito() {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let contenedorCarrito = document.querySelector("#contenedor-carrito");
     let footer = document.querySelector("#total");
@@ -264,18 +264,18 @@ function agregarAlCarrito(productoID) {
     let totalCarrito = carrito.reduce((acc, p) => acc + p.totalPrice, 0);
   
     footer.innerHTML = `Total: $${totalCarrito}`
-  }
+}
 
   //funcion para eliminar lo que se agrega al carrito de productos
 
-  function eliminarDelCarrito(deleteID) {
+ function eliminarDelCarrito(deleteID) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     const nuevoCarrito = carrito.filter(p => p.id !== deleteID);
   
     localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
     mostrarCarrito();
  
-  }
+}
 mostrarProductos();
 
 
