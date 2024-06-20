@@ -37,6 +37,9 @@ if (logo.children.length > 1) {
         main.children[7].classList.add("contenedor-carrito");
         main.children[7].id="contenedor-carrito";
         main.children[8].id="total";
+        main.children[9].id="BotonTotal";
+
+        
     }
 
      // se agrega una clase a un segundo div dentro de un ID
@@ -45,170 +48,104 @@ if (logo.children.length > 1) {
         car.id="carrito-footer";
 
 
-//adicionamos los productos a mostrar
-let productos =[
-    { id:"1234",
-    name: "Caldo de Costilla",
-    price:8000,
-    img:"./Imagenes/CaldodeCostilla.png",
-    description: "Caldo de costillar con Papa "
-    },
-    { id:"2345",
-    name: "Tamal con Chocolate",
-    price:9000,
-    img:"./Imagenes/Tamalconchocolate.jpg",
-    description: "Tamal con chocolate pan y queso"
-    },
-    { id:"3456",
-    name: "Huevos con Arepa",
-    price:7500,
-    img:"./Imagenes/huevosconarepa.jpg",
-    description: "Huevos con jamon y queso y arepa"
-    },
-    { id:"4567",
-    name: "Changua",
-    price:2700,
-    img:"./Imagenes/Changuaconhuevo.jpg",
-    description: "sopa con huevo leche papa y cilantro"
-    },
-    { id:"5678",
-    name: "Calentado Paisa",
-    price:2700,
-    img:"./Imagenes/Calentadopaisa.jpg",
-    description: "Frijoles rebueltos con arroz, con huevos, carne y queson con arepa."
+//adicionamos los productos a mostrar como Array Vacios ya que se extraeran de 3 .Json
+
+let productos =[]
+let postres = []
+let bebidas = []
+
+// Petición para obtener productos desde 3 archivos.json y asisgnarlos a un Array vacio para mostrar en el DOM
+async function obtenerProductos() {
+    try {
+        const respuestap = await fetch("/productos.json");
+        const datos1 = await respuestap.json();
+        productos = datos1
+
+        const respuestapo = await fetch("/postre.json");
+        const datos2 = await respuestapo.json();
+        postres = datos2
+
+        const respuestab = await fetch("/bebidas.json");
+        const datos3 = await respuestab.json();
+        bebidas = datos3
+
+    } catch (error) {
+        console.error('Error al obtener los datos:', error);
     }
-]
+    
+// funcion para mostrar los productos en el DOM
+    function mostrarProductos(){
+        const contenedor =document.querySelector("#productos")
+        let productosHTML = '';
+            for (const product of productos){
+                productosHTML += 
+                `
+                <div class="card" id=${product.id}>
+                    <img src=${product.img} alt=${product.description}>
+                    <div class="desProducto" >
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <b>${product.price}</b>
+                        <button class="agregar-carrito" data-id=${product.id}>Agregar</button>
+                    </div>
+                </div>
+            `}
+            contenedor.innerHTML = productosHTML;
+            
+        let contenedor1 =document.querySelector("#postres")
+        let productos1HTML = '';
+    
+        for (const postr of postres){
+            productos1HTML += 
+            `
+            <div class="card" id=${postr.id}>
+                <img src=${postr.img} alt=${postr.description}>
+                <div class="desProducto" >
+                    <h3>${postr.name}</h3>
+                    <p>${postr.description}</p>
+                    <b>${postr.price}</b>
+                    <button class="agregar-carrito" data-id=${postr.id}>Agregar</button>
+                </div>
+            </div>
+        `}
+        contenedor1.innerHTML = productos1HTML;
+    
+        const contenedor2 =document.querySelector("#bebidas")
+        let productos2HTML = '';
+    
+        for (const bebi of bebidas){
+            productos2HTML += 
+            `
+            <div class="card" id=${bebi.id}>
+                <img src=${bebi.img} alt=${bebi.description}>
+                <div class="desProducto" >
+                    <h3>${bebi.name}</h3>
+                    <p>${bebi.description}</p>
+                    <b>${bebi.price}</b>
+                    <button class="agregar-carrito" data-id=${bebi.id}>Agregar</button>
+                </div>
+            </div>
+        `}
+            contenedor2.innerHTML = productos2HTML;
 
-let postres =[
-    { id:"6789",
-    name: "Merengon",
-    price:8000,
-    img:"./Imagenes/Merengon.jpg",
-    description: "Merengue con crema y fruta "
-    },
-    { id:"78910",
-    name: "Manjar blanco",
-    price:9000,
-    img:"./Imagenes/Manjarblanco.jpg",
-    description: "Arequipe de leche con uvas pasas"
-    },
-    { id:"891011",
-    name: "Fresas con crema",
-    price:7500,
-    img:"./Imagenes/Fresasconcrema.jpg",
-    description: "Fresas con crema de leche y leche condensada"
-    },
-    { id:"9101112",
-    name: "Brebas",
-    price:2700,
-    img:"./Imagenes/Brebasconarequipe.jpg",
-    description: "Brebas con arequipe"
-    },
-    { id:"10111213",
-    name: "Arroz de leche",
-    price:2700,
-    img:"./Imagenes/ArrozdeLeche.jpg",
-    description: "Arroz con leche y leche condensada."
+            document.querySelectorAll(".agregar-carrito").forEach(btn => {
+            btn.addEventListener("click", () => {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Agregado con exito",
+                    showConfirmButton: false,
+                    timer: 900
+                });
+            const productoID = btn.getAttribute("data-id");
+            agregarAlCarrito(productoID);
+            });
+            });
     }
-]
-let bebidas =[
-    { id:"11121314",
-    name: "Tinto",
-    price:8000,
-    img:"./Imagenes/Tinto.jpg",
-    description: "tinto o cafe colombiano "
-    },
-    { id:"12131415",
-    name: "Refajo",
-    price:9000,
-    img:"./Imagenes/Refajo.jpg",
-    description: "Gaseosa colombiana con cervesa e hielo"
-    },
-    { id:"13141516",
-    name: "Lulada",
-    price:7500,
-    img:"./Imagenes/Lulada.jpg",
-    description: "Jugo de pulpa de fruta de lulo con hielo y agua"
-    },
-    { id:"14151617",
-    name: "Aguadepanela",
-    price:2700,
-    img:"./Imagenes/Aguadepanela.jpg",
-    description: "Agua de panela con agua y limon"
-    },
-    { id:"15161718",
-    name: "Agua Ardiente",
-    price:2700,
-    img:"./Imagenes/Aguardiente.jpg",
-    description: "Bebida alcolica a base de destilacion de grutas y cereales"
-    }
-]
-
-// funcion para mostrar los productos
-function mostrarProductos(){
-    let contenedor =document.querySelector("#productos")
-    let productosHTML = '';
-
-    for (const product of productos){
-        productosHTML += 
-        `
-        <div class="card" id=${product.id}>
-            <img src=${product.img} alt=${product.description}>
-            <div class="desProducto" >
-                <h3>${product.name}</h3>
-                <p>${product.description}</p>
-                <b>${product.price}</b>
-                <button class="agregar-carrito" data-id=${product.id}>Agregar</button>
-            </div>
-        </div>
-    `}
-    contenedor.innerHTML = productosHTML;
-
-    let contenedor1 =document.querySelector("#postres")
-    let productos1HTML = '';
-
-    for (const postr of postres){
-        productos1HTML += 
-        `
-        <div class="card" id=${postr.id}>
-            <img src=${postr.img} alt=${postr.description}>
-            <div class="desProducto" >
-                <h3>${postr.name}</h3>
-                <p>${postr.description}</p>
-                <b>${postr.price}</b>
-                <button class="agregar-carrito" data-id=${postr.id}>Agregar</button>
-            </div>
-        </div>
-    `}
-    contenedor1.innerHTML = productos1HTML;
-
-    let contenedor2 =document.querySelector("#bebidas")
-    let productos2HTML = '';
-
-    for (const bebi of bebidas){
-        productos2HTML += 
-        `
-        <div class="card" id=${bebi.id}>
-            <img src=${bebi.img} alt=${bebi.description}>
-            <div class="desProducto" >
-                <h3>${bebi.name}</h3>
-                <p>${bebi.description}</p>
-                <b>${bebi.price}</b>
-                <button class="agregar-carrito" data-id=${bebi.id}>Agregar</button>
-            </div>
-        </div>
-    `}
-        contenedor2.innerHTML = productos2HTML;
-
-
-
-        document.querySelectorAll(".agregar-carrito").forEach(btn => {
-        btn.addEventListener("click", () => {
-        const productoID = btn.getAttribute("data-id");
-        agregarAlCarrito(productoID);
-        });
-        });
+    mostrarProductos()
 }
+
+obtenerProductos();
 
  //agregamos al carrito productos
 function agregarAlCarrito(productoID) {
@@ -256,8 +193,25 @@ function mostrarCarrito() {
   
     document.querySelectorAll('.eliminar-carrito').forEach(btn => {
         btn.addEventListener('click', () => {
-        let btnDelete = btn.getAttribute('data-id');
-        eliminarDelCarrito(btnDelete);
+            Swal.fire({
+                title: "Estas Seguro?",
+                text: "Eliminaras esto del Carrito",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Si, Eliminar!"
+                }).then((result) => {  
+                if (result.isConfirmed) {
+                    let btnDelete = btn.getAttribute('data-id');
+                    eliminarDelCarrito(btnDelete);
+                    Swal.fire({
+                    title: "Eliminado!",
+                    text: "Su producto fue Eliminado del Carrito.",
+                    icon: "success"
+                    });
+                }
+            });
         });
     });
   
@@ -276,6 +230,36 @@ function mostrarCarrito() {
     mostrarCarrito();
  
 }
-mostrarProductos();
+
+//Evento para finalizar la compra
+
+
+document.querySelectorAll('#BotonTotal').forEach(btn => {
+    btn.addEventListener('click', () => {
+        let carritom = JSON.parse(localStorage.getItem("carrito")|| []);
+        let content = '';
+        let totalSum = 0;
+        if (carritom.length > 0) {
+            content = '<ul>';
+            carritom.forEach(item => {
+                content += `<li>${item.name}, Cantidad: ${item.cantidad}, Precio Total: ${item.totalPrice}</li>`;
+                totalSum += item.totalPrice;
+            });
+            content += '</ul>';
+        } else {
+            content = '<p>No hay elementos en el carrito.</p>';
+        }
+        content += `<strong><p>Total: ${totalSum}</p></strong>`;
+        Swal.fire({
+            title: "Total a Comprar",
+            html: content,
+            showCloseButton: true,
+            focusConfirm: false,
+            confirmButtonText: "Completado"
+        });
+    });
+});
+
+
 
 

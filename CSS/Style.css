@@ -115,6 +115,22 @@ max-height:100% ;
 
 }
 
+#BotonTotal{
+    padding: 10px;
+    border: 1px solid black;
+    color: green;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+#BotonTotal:hover{
+    background-color: black;
+    color: azure;
+    box-shadow: 1px 1px 1px black;
+
+
+}
 
 /* estilos carrito*/
 

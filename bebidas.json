@@ -1,0 +1,32 @@
+[
+    {"id":"11121314",
+    "name": "Tinto",
+    "price":8000,
+    "img":"./Imagenes/Tinto.jpg",
+    "description": "tinto o cafe colombiano "
+    },
+    { "id":"12131415",
+    "name": "Refajo",
+    "price":9000,
+    "img":"./Imagenes/Refajo.jpg",
+    "description": "Gaseosa colombiana con cervesa e hielo"
+    },
+    { "id":"13141516",
+    "name": "Lulada",
+    "price":7500,
+    "img":"./Imagenes/Lulada.jpg",
+    "description": "Jugo de pulpa de fruta de lulo con hielo y agua"
+    },
+    { "id":"14151617",
+    "name": "Aguadepanela",
+    "price":2700,
+    "img":"./Imagenes/Aguadepanela.jpg",
+    "description": "Agua de panela con agua y limon"
+    },
+    { "id":"15161718",
+    "name": "Agua Ardiente",
+    "price":2700,
+    "img":"./Imagenes/Aguardiente.jpg",
+    "description": "Bebida alcolica a base de destilacion de grutas y cereales"
+    }
+]

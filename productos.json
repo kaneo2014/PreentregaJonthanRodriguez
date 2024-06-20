@@ -1,0 +1,32 @@
+[
+    { "id":"1234",
+    "name": "Caldo de Costilla",
+    "price":8000,
+    "img":"./Imagenes/CaldodeCostilla.png",
+    "description": "Caldo de costillar con Papa "
+    },
+    { "id":"2345",
+    "name": "Tamal con Chocolate",
+    "price":9000,
+    "img":"./Imagenes/Tamalconchocolate.jpg",
+    "description": "Tamal con chocolate pan y queso"
+    },
+    { "id":"3456",
+    "name": "Huevos con Arepa",
+    "price":7500,
+    "img":"./Imagenes/huevosconarepa.jpg",
+    "description": "Huevos con jamon y queso y arepa"
+    },
+    { "id":"4567",
+    "name": "Changua",
+    "price":2700,
+    "img":"./Imagenes/Changuaconhuevo.jpg",
+    "description": "sopa con huevo leche papa y cilantro"
+    },
+    { "id":"5678",
+    "name": "Calentado Paisa",
+    "price":2700,
+    "img":"./Imagenes/Calentadopaisa.jpg",
+    "description": "Frijoles rebueltos con arroz, con huevos, carne y queson con arepa."
+    }
+]
