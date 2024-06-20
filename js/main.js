@@ -57,15 +57,15 @@ let bebidas = []
 // Petición para obtener productos desde 3 archivos.json y asisgnarlos a un Array vacio para mostrar en el DOM
 async function obtenerProductos() {
     try {
-        const respuestap = await fetch("/productos.json");
+        const respuestap = await fetch("./productos.json");
         const datos1 = await respuestap.json();
         productos = datos1
 
-        const respuestapo = await fetch("/postre.json");
+        const respuestapo = await fetch("./postre.json");
         const datos2 = await respuestapo.json();
         postres = datos2
 
-        const respuestab = await fetch("/bebidas.json");
+        const respuestab = await fetch("./bebidas.json");
         const datos3 = await respuestab.json();
         bebidas = datos3
 
